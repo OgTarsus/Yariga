@@ -11,7 +11,7 @@ import {yariga} from '../assets';
 import { CredentialResponse } from "../interfaces/google";
 
 // Todo: Update your Google Client ID here
-const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 export const Login: React.FC = () => {
   const { mutate: login } = useLogin<CredentialResponse>();
@@ -62,7 +62,7 @@ export const Login: React.FC = () => {
         justifyContent="center"
         flexDirection="column"
       >
-        <div>
+        <div style={{display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center"}}>
           <img src={yariga} alt="Yariga" />
         </div>
 
