@@ -25,7 +25,9 @@ export const Header: React.FC<RefineThemedLayoutHeaderProps> = ({
   const { data: user } = useGetIdentity<IUser>();
 
   return (
-    <AppBar position={sticky ? "sticky" : "relative"}>
+    <AppBar position={sticky ? "sticky" : "relative"} sx={{
+      // background: "#fcfcfc"
+    }}>
       <Toolbar>
         <Stack
           direction="row"

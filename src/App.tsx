@@ -10,7 +10,7 @@ import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 import {
   ErrorComponent,
   RefineSnackbarProvider,
-  ThemedLayout,
+  // ThemedLayout,
   useNotificationProvider,
 } from "@refinedev/mui";
 
@@ -42,6 +42,8 @@ import {
 import { Login } from "./pages/login";
 import { dataProvider } from "./providers/data";
 import { parseJwt } from "./utils/parse-jwt";
+
+import {ThemedLayout} from "./components/layout/index";
 
 const axiosInstance = axios.create();
 axiosInstance.interceptors.request.use((config) => {
