@@ -5,6 +5,9 @@ import SvgIcon from "@mui/material/SvgIcon";
 import Typography from "@mui/material/Typography";
 import type { RefineLayoutThemedTitleProps } from "@refinedev/mui";
 
+import logo from '../../assets/logo.svg'
+import yariga from '../../assets/yariga.svg'
+
 export const ThemedTitle: React.FC<RefineLayoutThemedTitleProps> = ({
   collapsed,
   wrapperStyles,
@@ -30,21 +33,7 @@ export const ThemedTitle: React.FC<RefineLayoutThemedTitleProps> = ({
           ...wrapperStyles,
         }}
       >
-        <SvgIcon height="24px" width="24px" color="primary">
-          {icon}
-        </SvgIcon>
-        {!collapsed && (
-          <Typography
-            variant="h6"
-            fontWeight={700}
-            color="text.primary"
-            fontSize="inherit"
-            textOverflow="ellipsis"
-            overflow="hidden"
-          >
-            {text}
-          </Typography>
-        )}
+        {collapsed ? <img src={logo} alt="logo" style={{width: 24, height: 24,}} /> : <img src={yariga} alt="yariga" style={{ height: 24,}} />}
       </MuiLink>
     </Link>
   );

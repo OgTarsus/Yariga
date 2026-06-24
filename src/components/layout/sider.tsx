@@ -218,6 +218,8 @@ export const ThemedSider: React.FC<RefineThemedLayoutSiderProps> = ({
                 py: isNested ? 1.25 : 1,
                 justifyContent: "center",
                 color: isSelected ? "primary.main" : "text.primary",
+                backgroundColor: isSelected ? '#475be8' : 'transparent',
+                // backgroundColorHover: isSelected ? '#1e36e8' : 'transparent',
                 borderRadius: '12px',
                 minHeight: '56px',
                 width: '90%',
@@ -274,6 +276,10 @@ export const ThemedSider: React.FC<RefineThemedLayoutSiderProps> = ({
               py: 1,
               justifyContent: "center",
               color: selectedKey === "/" ? "primary.main" : "text.primary",
+              borderRadius: '12px',
+              minHeight: '56px',
+              width: '90%',
+              margin: '10px auto',
             }}
           >
             <ListItemIcon
@@ -282,8 +288,8 @@ export const ThemedSider: React.FC<RefineThemedLayoutSiderProps> = ({
                 minWidth: "24px",
                 transition: "margin-right 0.3s",
                 marginRight: siderCollapsed ? "0px" : "12px",
-                color: "currentColor",
-                fontSize: "14px",
+                color: "",
+                fontSize: "16px",
               }}
             >
               <Dashboard />
@@ -371,9 +377,23 @@ export const ThemedSider: React.FC<RefineThemedLayoutSiderProps> = ({
     }
     return (
       <>
-        {dashboard}
-        {items}
-        {logout}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+            flex: 1,
+          }}
+        >
+          <div>
+            {/* {dashboard} */}
+            {items}
+          </div>
+
+          <div style={{ marginTop: "auto" }}>
+            {logout}
+          </div>
+        </div>
       </>
     );
   };
@@ -385,6 +405,9 @@ export const ThemedSider: React.FC<RefineThemedLayoutSiderProps> = ({
         flexGrow: 1,
         paddingTop: "16px",
         color: '#808191',
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       {renderSider()}
@@ -455,6 +478,7 @@ export const ThemedSider: React.FC<RefineThemedLayoutSiderProps> = ({
               overflow: "hidden",
               transition: "width 200ms cubic-bezier(0.4, 0, 0.6, 1) 0ms",
             },
+
           }}
           open
         >

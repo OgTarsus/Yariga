@@ -25,7 +25,7 @@ export const Header: React.FC<RefineThemedLayoutHeaderProps> = ({
   const { data: user } = useGetIdentity<IUser>();
 
   return (
-    <AppBar position={sticky ? "sticky" : "relative"} sx={{
+    <AppBar position={sticky ? "sticky" : "relative"} elevation={0} sx={{
       // background: "#fcfcfc"
     }}>
       <Toolbar>
@@ -35,21 +35,21 @@ export const Header: React.FC<RefineThemedLayoutHeaderProps> = ({
           justifyContent="flex-end"
           alignItems="center"
         >
-          <HamburgerMenu />
+          <HamburgerMenu/>
           <Stack
             direction="row"
             width="100%"
             justifyContent="flex-end"
             alignItems="center"
           >
-            <IconButton
-              color="inherit"
+            {/* <IconButton
+              color="#000"
               onClick={() => {
                 setMode();
               }}
             >
               {mode === "dark" ? <LightModeOutlined /> : <DarkModeOutlined />}
-            </IconButton>
+            </IconButton> */}
 
             {(user?.avatar || user?.name) && (
               <Stack
@@ -65,6 +65,9 @@ export const Header: React.FC<RefineThemedLayoutHeaderProps> = ({
                         xs: "none",
                         sm: "inline-block",
                       },
+                      // color: '#0000009e',
+                      color: '#fff',
+                      textTransform: "capitalize",
                     }}
                     variant="subtitle2"
                   >

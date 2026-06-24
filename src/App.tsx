@@ -44,6 +44,11 @@ import { dataProvider } from "./providers/data";
 import { parseJwt } from "./utils/parse-jwt";
 
 import {ThemedLayout} from "./components/layout/index";
+import {ThemedHeader} from './components/layout/header'
+import {ThemedSider} from './components/layout/sider'
+import {ThemedTitle} from './components/layout/title'
+
+
 
 const axiosInstance = axios.create();
 axiosInstance.interceptors.request.use((config) => {
@@ -148,24 +153,57 @@ function App() {
                 authProvider={authProvider}
                 resources={[
                   {
-                    name: "blog_posts",
-                    list: "/blog-posts",
-                    create: "/blog-posts/create",
-                    edit: "/blog-posts/edit/:id",
-                    show: "/blog-posts/show/:id",
-                    meta: {
-                      canDelete: true,
-                    },
+                    name: "property",
+                    list: "/property",
+                    // create: "/blog-posts/create",
+                    // edit: "/blog-posts/edit/:id",
+                    // show: "/blog-posts/show/:id",
+                    // meta: {
+                    //   canDelete: true,
+                    // },
                   },
                   {
-                    name: "categories",
-                    list: "/categories",
-                    create: "/categories/create",
-                    edit: "/categories/edit/:id",
-                    show: "/categories/show/:id",
+                    name: "agent",
+                    list: "/agent",
+                    // create: "/categories/create",
+                    // edit: "/categories/edit/:id",
+                    // show: "/categories/show/:id",
+                    // meta: {
+                    //   canDelete: true,
+                    // },
+                  },
+                  {
+                    name: "review",
+                    list: "/review",
+                    // create: "/categories/create",
+                    // edit: "/categories/edit/:id",
+                    // show: "/categories/show/:id",
+                    // meta: {
+                    //   canDelete: true,
+                    // },
+                  },
+                  {
+                    name: "message",
+                    list: "/message",
+                    // create: "/categories/create",
+                    // edit: "/categories/edit/:id",
+                    // show: "/categories/show/:id",
+                    // meta: {
+                    //   canDelete: true,
+                    // },
+                  },
+                  {
+                    name: "my-profile",
                     meta: {
-                      canDelete: true,
+                      label: "My Profile",
                     },
+                    list: "/my-profile",
+                    // create: "/categories/create",
+                    // edit: "/categories/edit/:id",
+                    // show: "/categories/show/:id",
+                    // meta: {
+                    //   canDelete: true,
+                    // },
                   },
                 ]}
                 options={{
@@ -181,7 +219,7 @@ function App() {
                         key="authenticated-inner"
                         fallback={<CatchAllNavigate to="/login" />}
                       >
-                        <ThemedLayout Header={Header}>
+                        <ThemedLayout Header={Header} Sider={ThemedSider} Title={ThemedTitle}>
                           <Outlet />
                         </ThemedLayout>
                       </Authenticated>
