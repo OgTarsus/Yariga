@@ -39,14 +39,32 @@ import {
   CategoryList,
   CategoryShow,
 } from "./pages/categories";
-import { Login } from "./pages/login";
+// import { Login, Home, agent, myProfile, propertyDetails, allProperties, createProperty, agentProfile, editProperty } from "./pages";
 import { dataProvider } from "./providers/data";
 import { parseJwt } from "./utils/parse-jwt";
+
+import { Login } from "./pages/login";
+import Home from "./pages/home";
+import agent from './pages/agent'
+import myProfile from "./pages/myProfile";
+import propertyDetails from "./pages/propertyDetails";
+import allProperties from "./pages/allProperties";
+import createProperty from "./pages/createProperty";
+import agentProfile from "./pages/agentProfile";
+import editProperty from "./pages/editProperty";
 
 import {ThemedLayout} from "./components/layout/index";
 import {ThemedHeader} from './components/layout/header'
 import {ThemedSider} from './components/layout/sider'
 import {ThemedTitle} from './components/layout/title'
+
+import {
+  AccountCircleOutlined,
+  ChatBubbleOutline,
+  PeopleAltOutlined,
+  StarOutlineRounded,
+  VillaOutlined,
+} from "@mui/icons-material";
 
 
 
@@ -155,6 +173,9 @@ function App() {
                   {
                     name: "property",
                     list: "/property",
+                    meta: {
+                      icon: <VillaOutlined />,
+                    }
                     // create: "/blog-posts/create",
                     // edit: "/blog-posts/edit/:id",
                     // show: "/blog-posts/show/:id",
@@ -165,6 +186,9 @@ function App() {
                   {
                     name: "agent",
                     list: "/agent",
+                    meta: {
+                      icon: <PeopleAltOutlined />,
+                    }
                     // create: "/categories/create",
                     // edit: "/categories/edit/:id",
                     // show: "/categories/show/:id",
@@ -175,6 +199,9 @@ function App() {
                   {
                     name: "review",
                     list: "/review",
+                    meta: {
+                      icon: <StarOutlineRounded />,
+                    }
                     // create: "/categories/create",
                     // edit: "/categories/edit/:id",
                     // show: "/categories/show/:id",
@@ -185,6 +212,9 @@ function App() {
                   {
                     name: "message",
                     list: "/message",
+                    meta: {
+                      icon: <ChatBubbleOutline />,
+                    }
                     // create: "/categories/create",
                     // edit: "/categories/edit/:id",
                     // show: "/categories/show/:id",
@@ -196,6 +226,7 @@ function App() {
                     name: "my-profile",
                     meta: {
                       label: "My Profile",
+                      icon: <AccountCircleOutlined />,
                     },
                     list: "/my-profile",
                     // create: "/categories/create",
@@ -227,8 +258,9 @@ function App() {
                   >
                     <Route
                       index
-                      element={<NavigateToResource resource="blog_posts" />}
+                      element={<Home />}
                     />
+                    {/* <Route path="/" element={<Home />} /> */}
                     <Route path="/blog-posts">
                       <Route index element={<BlogPostList />} />
                       <Route path="create" element={<BlogPostCreate />} />

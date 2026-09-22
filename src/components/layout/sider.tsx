@@ -288,8 +288,10 @@ export const ThemedSider: React.FC<RefineThemedLayoutSiderProps> = ({
                 minWidth: "24px",
                 transition: "margin-right 0.3s",
                 marginRight: siderCollapsed ? "0px" : "12px",
-                color: "",
+                color: "#808191",
                 fontSize: "16px",
+                marginLeft: '6px',
+                // marginRight: siderCollapsed ? "0px" : "14px",
               }}
             >
               <Dashboard />
@@ -299,6 +301,8 @@ export const ThemedSider: React.FC<RefineThemedLayoutSiderProps> = ({
               primaryTypographyProps={{
                 noWrap: true,
                 fontSize: "16px",
+                color: "#808191",
+                // fontWeight: 
               }}
             />
           </ListItemButton>
@@ -386,7 +390,7 @@ export const ThemedSider: React.FC<RefineThemedLayoutSiderProps> = ({
           }}
         >
           <div>
-            {/* {dashboard} */}
+            {dashboard}
             {items}
           </div>
 
